@@ -22,10 +22,24 @@ backtest:
   start_date: "2025-03-01"
   end_date: "2026-03-20"
 
+kabu_api:
+  host: "localhost"
+  port: 18081  # デモ
+  password: "${KABU_API_PASSWORD}"
+
 trading:
+  mode: "paper"  # paper or live
   position_size_pct: 0.10
   stop_loss_pct: 0.03
   max_positions: 3
+  max_per_stock: 500000  # 1銘柄最大50万円
+  interval_seconds: 300
+  stale_order_minutes: 30
 
 notification:
   discord_webhook_url: "${DISCORD_WEBHOOK_URL}"
+  daily_report_time: "15:35"
+
+logging:
+  level: "INFO"
+  log_dir: "data/logs"
